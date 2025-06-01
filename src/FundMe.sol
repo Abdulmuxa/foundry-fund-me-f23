@@ -91,7 +91,6 @@ contract FundMe {
     /**
      * View / Pure functions (Getters)
      */
-
     function getAddressToAmountFunded(address fundingAddress) public view returns (uint256) {
         return s_addressToAmountFunded[fundingAddress];
     }
@@ -100,7 +99,7 @@ contract FundMe {
         return s_funders[index];
     }
 
-    function getOwner() external view returns(address) {
+    function getOwner() external view returns (address) {
         return i_owner;
     }
 }

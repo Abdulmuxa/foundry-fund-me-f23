@@ -5,10 +5,10 @@ pragma solidity ^0.8.18;
 import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../../src/FundMe.sol";
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
-import {FundFundMe, WithdrawFundMe} from "../../script/interactions.s.sol"; 
+import {FundFundMe, WithdrawFundMe} from "../../script/interactions.s.sol";
 
-contract InteractionsTest is Test{
-     FundMe fundMe;
+contract InteractionsTest is Test {
+    FundMe fundMe;
 
     address USER = makeAddr("user");
     uint256 constant SEND_VALUE = 0.1 ether; // 0.1 ether = 100000000000000000

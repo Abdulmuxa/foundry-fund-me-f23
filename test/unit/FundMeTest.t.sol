@@ -6,7 +6,7 @@ import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../../src/FundMe.sol";
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
-contract FundMeTest is Test{
+contract FundMeTest is Test {
     FundMe fundMe;
 
     address USER = makeAddr("user");
@@ -29,8 +29,8 @@ contract FundMeTest is Test{
     }
 
     function testPriceFeedVersionIsAccurate() public view {
-    uint256 version = fundMe.getVersion();
-    assertEq(version, 4);
+        uint256 version = fundMe.getVersion();
+        assertEq(version, 4);
     }
 
     function testFundFailsWithoutEnoughETH() public {
@@ -43,7 +43,7 @@ contract FundMeTest is Test{
         fundMe.fund{value: SEND_VALUE}();
 
         uint256 fundedAmount = fundMe.getAddressToAmountFunded(USER);
-        assertEq(fundedAmount, SEND_VALUE); 
+        assertEq(fundedAmount, SEND_VALUE);
     }
 
     function testAddsFunderToArrayOfFunders() public {
@@ -106,10 +106,9 @@ contract FundMeTest is Test{
         // Assert
         assert(address(fundMe).balance == 0);
         assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
-
     }
 
-     function testWithdrawFromMultipleFundersCheaper() public funded {
+    function testWithdrawFromMultipleFundersCheaper() public funded {
         uint160 numberOfFunders = 10;
         uint160 startingFunderIndex = 1;
 
@@ -133,7 +132,5 @@ contract FundMeTest is Test{
         // Assert
         assert(address(fundMe).balance == 0);
         assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
-
     }
-
 }
